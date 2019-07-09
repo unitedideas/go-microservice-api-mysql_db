@@ -47,19 +47,28 @@ func (c *car) newTopSpeed(newSpeed float64) {
 	c.topSpeedKmh = newSpeed
 }
 
+func newerTopSpeed(c car, speed float64) car {
+	c.topSpeedKmh = speed
+	return c
+}
+
 func main() {
-	aCar := car{
+	car := car{
 		gasPeddle:     65000,
 		brakePeddle:   0,
 		steeringWheel: 12561,
 		topSpeedKmh:   225.0}
 
-	fmt.Println(aCar.gasPeddle)
-	fmt.Println("kmh:", aCar.kmh())
-	fmt.Println("mph:", aCar.mph())
+	fmt.Println(car.gasPeddle)
+	fmt.Println("kmh:", car.kmh())
+	fmt.Println("mph:", car.mph())
 	fmt.Println()
-	aCar.newTopSpeed(500)
-	fmt.Println("kmh:", aCar.kmh())
-	fmt.Println("mph:", aCar.mph())
+	car.newTopSpeed(500)
+	fmt.Println("kmh:", car.kmh())
+	fmt.Println("mph:", car.mph())
+	fmt.Println()
+	car = newerTopSpeed(car, 500)
+	fmt.Println("kmh:", car.kmh())
+	fmt.Println("mph:", car.mph())
 
 }
